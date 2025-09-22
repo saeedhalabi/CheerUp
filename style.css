@@ -47,3 +47,32 @@ button,
 select {
   font: inherit;
 }
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 60px 20px;
+}
+
+#header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+#header h4 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #1a1a2e;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 600px) {
+  #header h4 {
+    text-align: center;
+  }
+  #header {
+    padding: 0;
+  }
+}
