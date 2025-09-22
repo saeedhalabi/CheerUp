@@ -1,6 +1,9 @@
-/* Import Google Fonts: Inter and Playfair Display for typography */
+/* Import Google Fonts: Inter and Playfair Display */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
+/*=========================
+  Root Variables
+=========================*/
 :root {
   --color-primary: #ffd93d;
   --color-accent: #ff6f61;
@@ -9,7 +12,9 @@
   --color-success: #4caf50;
 }
 
-/* Apply border-box sizing to all elements for easier layout control */
+/*=========================
+  Global Styles
+=========================*/
 *,
 *::before,
 *::after {
@@ -31,7 +36,9 @@ h6 {
   font-family: "Playfair Display", serif;
 }
 
-/* Ensure media elements scale responsively and don't overflow their containers */
+/*=========================
+  Media Elements
+=========================*/
 img,
 picture,
 svg,
@@ -40,7 +47,9 @@ video {
   display: block;
 }
 
-/* Inherit font styles for form elements for consistent appearance */
+/*=========================
+  Form Elements
+=========================*/
 input,
 textarea,
 button,
@@ -48,6 +57,9 @@ select {
   font: inherit;
 }
 
+/*=========================
+  Header Styles
+=========================*/
 #header {
   display: flex;
   align-items: center;
@@ -64,10 +76,13 @@ select {
 #header h4 {
   font-size: 1.2rem;
   margin-top: 10px;
-  color: #1a1a2e;
+  color: var(--color-text);
   font-weight: 400;
 }
 
+/*=========================
+  Responsive Styles
+=========================*/
 @media only screen and (max-width: 600px) {
   #header h4 {
     text-align: center;
