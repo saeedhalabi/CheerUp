@@ -133,6 +133,60 @@ select {
 }
 
 /*=========================
+  Archive Styles
+=========================*/
+#archives {
+  padding: 2em 1em;
+  text-align: center;
+}
+
+#archives h2 {
+  font-size: 2rem;
+  margin-bottom: 1em;
+  color: var(--color-text);
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25em;
+}
+
+.archive-card {
+  background: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  border-radius: 12px;
+  padding: 1em;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.archive-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.archive-card .headline {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin: 0 0 0.5em;
+}
+
+.archive-card .date {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.empty-state {
+  margin-top: 1.5em;
+  font-size: 1rem;
+  color: #999;
+  font-style: italic;
+}
+
+/*=========================
 Responsive Styles
 =========================*/
 @media only screen and (max-width: 600px) {
