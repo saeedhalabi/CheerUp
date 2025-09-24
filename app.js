@@ -14,11 +14,14 @@ addBtn.addEventListener("click", async () => {
     // Hide empty state
     emptyState.style.display = "none";
 
+    // Show the grid
+    archiveGrid.style.display = "grid";
+
     // Add note + motivation to archive
     const div = document.createElement("div");
-    div.classList.add("archive-item");
+    div.classList.add("archive-card");
     div.innerHTML = `
-      <p><strong>${note}</strong></p>
+      <p class="headline">${note}</p>
       <p class="motivation">💡 ${motivation}</p>
     `;
     archiveGrid.appendChild(div);
