@@ -150,7 +150,6 @@ select {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25em;
-  display: none; /* Hidden until JS shows some items */
 }
 
 .archive-card {
