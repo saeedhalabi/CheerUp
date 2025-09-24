@@ -3,12 +3,19 @@ import {
   getMotivation,
   getModelStatus,
 } from "../controller/motivate.controller.js";
+
 const router = express.Router();
 
-// POST route for generating motivation
+/**
+ * @route POST /
+ * @desc Generate a motivational message based on a note
+ */
 router.post("/", getMotivation);
 
-// GET route to check model status
+/**
+ * @route GET /status
+ * @desc Get the status of the model (ready/loading/error)
+ */
 router.get("/status", getModelStatus);
 
 export default router;
