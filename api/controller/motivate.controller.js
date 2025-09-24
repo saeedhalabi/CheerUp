@@ -22,7 +22,12 @@ export const getMotivation = async (req, res) => {
     const result = await generator(
       `Note: ${note}. Write a short motivational response.`
     );
-    res.json({ motivation: result[0]?.generated_text || "Stay motivated!" });
+
+    // Take generated text and limit it to ~20 words
+    const fullText = result[0]?.generated_text || "Stay motivated!";
+    const limitedText = fullText.split(" ").slice(0, 20).join(" ");
+
+    res.json({ motivation: limitedText });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error", error: err.message });
