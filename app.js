@@ -8,26 +8,34 @@ addBtn.addEventListener("click", async () => {
   if (!note) return;
 
   try {
-    const res = await axios.post("http://localhost:5000/motivate", { note });
-    const motivation = res.data.motivation;
+    const { data } = await axios.post("http://localhost:5000/motivate", {
+      note,
+    });
+    const motivation = data.motivation;
 
-    // Hide empty state
+    // Toggle visibility
     emptyState.style.display = "none";
-
-    // Show the grid
     archiveGrid.style.display = "grid";
 
-    // Add note + motivation to archive
-    const div = document.createElement("div");
-    div.classList.add("archive-card");
-    div.innerHTML = `
-      <p class="headline">${note}</p>
-      <p class="motivation">💡 ${motivation}</p>
+    // Create archive card
+    const card = document.createElement("div");
+    card.className = "archive-card";
+    card.innerHTML = `
+      <p class="headline">${escapeHTML(note)}</p>
+      <p class="motivation">💡 ${escapeHTML(motivation)}</p>
     `;
-    archiveGrid.appendChild(div);
 
+    archiveGrid.appendChild(card);
     input.value = "";
   } catch (err) {
-    console.error(err);
+    console.error("Error posting motivation note:", err);
+    alert("Something went wrong. Please try again.");
   }
 });
+
+// Basic XSS protection
+function escapeHTML(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
