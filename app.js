@@ -2,6 +2,7 @@ const input = document.getElementById("winInput");
 const addBtn = document.getElementById("addBtn");
 const archiveGrid = document.querySelector(".archive-grid");
 const emptyState = document.querySelector(".empty-state");
+const loadingEl = document.getElementById("loading");
 
 // Load saved notes from localStorage
 window.addEventListener("DOMContentLoaded", loadSavedNotes);
@@ -10,6 +11,8 @@ window.addEventListener("DOMContentLoaded", loadSavedNotes);
 async function addNote() {
   const note = input.value.trim();
   if (!note) return;
+
+  setLoading(true);
 
   try {
     const { data } = await axios.post("http://localhost:5000/motivate", {
@@ -27,6 +30,8 @@ async function addNote() {
   } catch (err) {
     console.error("Error posting motivation note:", err);
     alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
   }
 }
 
@@ -77,4 +82,18 @@ function escapeHTML(str) {
   const div = document.createElement("div");
   div.textContent = str;
   return div.innerHTML;
+}
+
+function setLoading(isLoading) {
+  if (isLoading) {
+    loadingEl.classList.remove("hidden");
+    addBtn.disabled = true;
+    addBtn.textContent = "Generating...";
+    input.disabled = true;
+  } else {
+    loadingEl.classList.add("hidden");
+    addBtn.disabled = false;
+    addBtn.textContent = "Add";
+    input.disabled = false;
+  }
 }
