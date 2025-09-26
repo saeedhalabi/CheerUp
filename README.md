@@ -65,8 +65,8 @@ cheerup/
 │   ├── controller/      # Backend controllers
 │   └── route/           # Backend routes
 ├── package.json         # Project metadata & dependencies
-</details>
 ```
+</details>
 
 # 🤝 Contributing
 ### Contributions are welcome!
