@@ -84,6 +84,17 @@ function escapeHTML(str) {
   return div.innerHTML;
 }
 
+/**
+ * Toggles the loading state of the UI.
+ * - When `isLoading` is true:
+ *   - Shows the loading spinner
+ *   - Disables the input and button
+ *   - Changes button text to "Generating..."
+ * - When `isLoading` is false:
+ *   - Hides the loading spinner
+ *   - Re-enables the input and button
+ *   - Resets button text to "Add"
+ */
 function setLoading(isLoading) {
   if (isLoading) {
     loadingEl.classList.remove("hidden");
