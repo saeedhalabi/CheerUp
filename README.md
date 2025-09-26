@@ -53,19 +53,20 @@ http://localhost:3000
 # 📂 Project Structure
 
 <details>
-  <summary>
-    cheerup/
+  <summary>cheerup/ directory structure</summary>
+
+```bash
+cheerup/
 ├── index.html           # Main entry point (HTML)
 ├── styles.css           # Global styles (CSS)
-├── app.js            # Frontend logic (JS)
+├── app.js               # Frontend logic (JS)
 ├── api/                 # Backend folder
 │   ├── server.js        # Express backend entry point
 │   ├── controller/      # Backend controllers
 │   └── route/           # Backend routes
 ├── package.json         # Project metadata & dependencies
-
-  </summary>
 </details>
+```
 
 # 🤝 Contributing
 ### Contributions are welcome!
