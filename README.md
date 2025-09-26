@@ -90,6 +90,7 @@ git push origin feature/amazing-feature
 - Add user accounts for personalized journals
 - Explore AI-powered headline suggestions
 
+
 ## 📫 Contact
 
-Feel free to reach out via [saeedrhalabi@gmail.com](mailto:saeedrhalabi@gmail.com) or open an issue for support and questions.
+Feel free to reach out via [Email me](https://mail.google.com/mail/?view=cm&fs=1&to=saeedrhalabi@gmail.com) or open an issue for support and questions.
