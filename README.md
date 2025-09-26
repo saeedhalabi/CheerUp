@@ -53,7 +53,7 @@ http://localhost:3000
 # 📂 Project Structure
 
 <details>
-  <summary>cheerup/ directory structure</summary>
+  <summary>Directory structure</summary>
 
 ```bash
 cheerup/
