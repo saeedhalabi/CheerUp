@@ -33,7 +33,7 @@ export const getMotivation = async (req, res) => {
     let motivation = response.choices[0]?.message?.content || "Stay motivated!";
 
     // Remove unwanted special characters
-    motivation = motivation.replace(/[*"_~`]()/g, "").trim();
+    motivation = motivation.replace(/[*"_~`()]/g, "").trim();
 
     return res.json({ motivation });
   } catch (err) {
