@@ -10,7 +10,14 @@ app.locals.HF_TOKEN = process.env.HF_TOKEN;
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(cors({ origin: "http://127.0.0.1:5500" }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5500", // local dev
+      "https://cheerup-frontend.onrender.com/",
+    ],
+  })
+);
 
 app.use("/motivate", motivateRoutes);
 

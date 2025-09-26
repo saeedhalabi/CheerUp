@@ -15,9 +15,12 @@ async function addNote() {
   setLoading(true);
 
   try {
-    const { data } = await axios.post("http://localhost:5000/motivate", {
-      note,
-    });
+    const { data } = await axios.post(
+      "https://cheerup-backend.onrender.com/motivate",
+      {
+        note,
+      }
+    );
     const motivation = data.motivation;
 
     // Save to localStorage
