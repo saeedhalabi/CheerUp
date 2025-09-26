@@ -63,7 +63,7 @@ cheerup/
 ├── api/                 # Backend folder
 │   ├── server.js        # Express backend entry point
 │   ├── controller/      # Backend controllers
-│   ├── route/           # Backend routes
+│   ├── routes/           # Backend routes
 │   └── utils/           # Utility functions
 ├── package.json         # Project metadata & dependencies
 
