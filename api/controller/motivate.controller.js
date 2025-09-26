@@ -1,47 +1,43 @@
 import { sendError } from "../utils/responses.js";
+import { InferenceClient } from "@huggingface/inference";
 
-export const getModelStatus = (req, res) => {
-  const { modelLoaded, modelError } = req.app.locals;
-
-  if (modelLoaded) {
+export const getModelStatus = async (req, res) => {
+  try {
     return res.json({ status: "ready" });
+  } catch (err) {
+    return sendError(res, 500, "Error checking model status", err);
   }
-
-  if (modelError) {
-    return sendError(res, 500, "error", modelError);
-  }
-
-  return res.json({ status: "loading" });
 };
 
 export const getMotivation = async (req, res) => {
-  const { modelLoaded, modelError, generator } = req.app.locals;
   const { note } = req.body;
 
+  if (!note) {
+    return sendError(res, 400, "Note required");
+  }
+
+  const HF_TOKEN = req.app.locals.HF_TOKEN;
+  const client = new InferenceClient(HF_TOKEN);
+
   try {
-    if (!modelLoaded) {
-      return sendError(res, 503, "Model loading...");
-    }
+    const response = await client.chatCompletion({
+      model: "deepseek-ai/DeepSeek-V3-0324",
+      messages: [
+        {
+          role: "user",
+          content: `Note: ${note}. Write a short motivational response in few words`,
+        },
+      ],
+    });
 
-    if (modelError) {
-      return sendError(res, 500, "Model failed", modelError);
-    }
+    let motivation = response.choices[0]?.message?.content || "Stay motivated!";
 
-    if (!note) {
-      return sendError(res, 400, "Note required");
-    }
+    // Remove unwanted special characters
+    motivation = motivation.replace(/[*"_~`]()/g, "").trim();
 
-    const result = await generator(
-      `Note: ${note}. Write a short motivational response.`
-    );
-
-    // Take generated text and limit it to ~20 words
-    const fullText = result[0]?.generated_text || "Stay motivated!";
-    const limitedText = fullText.split(" ").slice(0, 20).join(" ");
-
-    return res.json({ motivation: limitedText });
+    return res.json({ motivation });
   } catch (err) {
     console.error(err);
-    return sendError(res, 500, "Server error", err);
+    return sendError(res, 500, "Failed to get motivation", err);
   }
 };
