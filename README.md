@@ -58,7 +58,7 @@ http://localhost:3000
 ```bash
 cheerup/
 ├── index.html           # Main entry point (HTML)
-├── styles.css           # Global styles (CSS)
+├── style.css           # Global styles (CSS)
 ├── app.js               # Frontend logic (JS)
 ├── api/                 # Backend folder
 │   ├── server.js        # Express backend entry point
