@@ -13,9 +13,11 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:5500", // local dev
-      "https://cheerup-frontend.onrender.com/",
+      "http://localhost:5500", // for local dev
+      "https://cheerup-frontend.onrender.com", // deployed frontend
     ],
+    methods: ["GET", "POST", "OPTIONS"],
+    credentials: false,
   })
 );
 
