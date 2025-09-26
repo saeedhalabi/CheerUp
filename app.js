@@ -3,6 +3,9 @@ const addBtn = document.getElementById("addBtn");
 const archiveGrid = document.querySelector(".archive-grid");
 const emptyState = document.querySelector(".empty-state");
 
+// Load saved notes from localStorage
+window.addEventListener("DOMContentLoaded", loadSavedNotes);
+
 // Function to add a note
 async function addNote() {
   const note = input.value.trim();
@@ -14,22 +17,49 @@ async function addNote() {
     });
     const motivation = data.motivation;
 
-    emptyState.style.display = "none";
-    archiveGrid.style.display = "grid";
+    // Save to localStorage
+    saveNoteToLocalStorage(note, motivation);
 
-    const card = document.createElement("div");
-    card.className = "archive-card";
-    card.innerHTML = `
-      <p class="headline">${escapeHTML(note)}</p>
-      <p class="motivation">💡 ${escapeHTML(motivation)}</p>
-    `;
+    // Add to UI
+    renderNoteCard(note, motivation);
 
-    archiveGrid.appendChild(card);
     input.value = "";
   } catch (err) {
     console.error("Error posting motivation note:", err);
     alert("Something went wrong. Please try again.");
   }
+}
+
+// Render a note card
+function renderNoteCard(note, motivation) {
+  emptyState.style.display = "none";
+  archiveGrid.style.display = "grid";
+
+  const card = document.createElement("div");
+  card.className = "archive-card";
+  card.innerHTML = `
+    <p class="headline">${escapeHTML(note)}</p>
+    <p class="motivation">💡 ${escapeHTML(motivation)}</p>
+  `;
+
+  archiveGrid.appendChild(card);
+}
+
+// Save note to localStorage
+function saveNoteToLocalStorage(note, motivation) {
+  const notes = JSON.parse(localStorage.getItem("motivations")) || [];
+  notes.push({ note, motivation });
+  localStorage.setItem("motivations", JSON.stringify(notes));
+}
+
+// Load saved notes on page load
+function loadSavedNotes() {
+  const notes = JSON.parse(localStorage.getItem("motivations")) || [];
+  if (notes.length > 0) {
+    emptyState.style.display = "none";
+    archiveGrid.style.display = "grid";
+  }
+  notes.forEach(({ note, motivation }) => renderNoteCard(note, motivation));
 }
 
 // Click handler
