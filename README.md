@@ -130,3 +130,4 @@ git push origin feature/your-feature
 Please include tests for new features and follow standard PR conventions.
 
 ---
+<p align="center"><strong>From idea to execution by Saeed Halabi</strong></p>
