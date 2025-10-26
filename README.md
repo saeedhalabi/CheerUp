@@ -69,6 +69,8 @@ cheerup/
 ```
 </details>
 
+---
+
 # 🤝 Contributing
 ### Contributions are welcome!
 # Fork the repo and create a new branch
@@ -82,12 +84,16 @@ git commit -m "Add amazing feature"
 git push origin feature/amazing-feature
 ```
 
+---
+
 📌 **Roadmap**
 
 - Add persistent storage for headlines
 - Enable social media sharing
 - Add user accounts for personalized journals
 - Explore AI-powered headline suggestions
+
+---
 
 
 ## 📬 Contact
@@ -97,3 +103,5 @@ Got feedback, ideas, or questions? Let’s connect!
 📧 [Email Me](https://mail.google.com/mail/?view=cm&fs=1&to=saeedrhalabi@gmail.com)  
 💼 [LinkedIn](https://www.linkedin.com/in/saeed-halabi)  
 🌐 [Portfolio](https://saeedhalabi.com)  
+
+---
