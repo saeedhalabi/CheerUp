@@ -23,7 +23,7 @@ Why use it?
 Input: "I organized my desk"  
 Output: "Local Organizer Restores Order, Desk Productivity Soars"  
 
-**Screenshots:**  
+**📸 Screenshots:**  
 ![Headlines](./screenshots/headlines.jpg) ![Generate Headline](./screenshots/generate-headline.jpg)
 
 ---
