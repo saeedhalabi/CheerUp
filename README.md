@@ -9,7 +9,6 @@
 - 📰 **Headline Generator** – Convert daily wins into witty, newspaper-style titles.  
 - 🎉 **Celebrate Everyday Moments** – Remind yourself that small victories matter.  
 - 📓 **Daily Journal** – Store and revisit achievements anytime.  
-- 🎨 **Customizable Themes** – Personalize the newspaper look.  
 - 📱 **Responsive UI** – Works smoothly on desktop and mobile.  
 
 ---
