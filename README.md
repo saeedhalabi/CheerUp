@@ -1,109 +1,138 @@
-# 📰 CheerUp
+# CheerUp
 
-**CheerUp** is a fun web app that transforms your **daily small wins** into **playful newspaper-style headlines**, helping you celebrate and remember everyday achievements.  
+[![Built with Node](https://img.shields.io/badge/Node.js-%3E%3D12-brightgreen)](#tech-stack)
 
----
+CheerUp turns everyday "small wins" into playful, newspaper-style headlines to help you celebrate and remember the little victories.
 
-## ✨ Features
-
-- 📰 **Headline Generator** – Convert daily wins into witty, newspaper-style titles.  
-- 🎉 **Celebrate Everyday Moments** – Remind yourself that small victories matter.  
-- 📓 **Daily Journal** – Store and revisit achievements anytime.  
-- 📱 **Responsive UI** – Works smoothly on desktop and mobile.  
+Why use it?
+- Quickly turn a mundane moment into a memorable headline.
+- Keep a light, positive daily journal.
+- Share or revisit highlights when you need a mood boost.
 
 ---
 
-## 🚀 Tech Stack
-
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** Node.js, Express.js
-
-## 🤖 AI Integration
-
-This app leverages the powerful models from [Hugging Face](https://huggingface.co/) to generate creative, playful newspaper-style headlines from your daily small wins. The AI helps make each headline unique and engaging!
+## Key Features
+- Headline generator: Convert text inputs into creative newspaper-style titles.
+- Daily journal: Save and browse previous headlines.
+- Responsive front-end: Works well on mobile and desktop.
+- Extensible backend: Node + Express with a simple API for integration.
 
 ---
 
-## 📦 Installation & Setup
+## Demo
+Enter a small win like:
+"I organized my desk"  
+Result:
+"Local Organizer Restores Order, Desk Productivity Soars"
 
+(Screenshots: ./screenshots/headlines.jpg, ./screenshots/generate-headline.jpg)
+
+---
+
+## Quick Start
+
+1. Clone
 ```bash
-# Clone the repository
 git clone https://github.com/your-username/cheerup.git
 cd cheerup
+```
 
-# Install backend dependencies
+2. Install
+```bash
 npm install
+```
 
-# Start the server
+3. Configure
+Create a .env file in the project root:
+```env
+PORT=3000
+HUGGINGFACE_API_KEY=your_huggingface_api_key_here
+```
+Replace HUGGINGFACE_API_KEY with your Hugging Face or other AI provider key.
+
+4. Run
+```bash
 npm start
-
-# Open in your browser
-http://localhost:3000
 ```
-# 🛠️ Usage
-1- Open the app in your browser.
+Open http://localhost:3000
 
-2- Enter a small win (e.g., “I cooked dinner today”).
+---
 
-3- Watch it transform into a fun headline (e.g., “Local Chef Whips Up Culinary Masterpiece”).
+## API (example)
+POST /api/generate
+Request:
+```json
+{
+  "text": "I cooked dinner today",
+  "tone": "playful"
+}
+```
+Response:
+```json
+{
+  "headline": "Local Chef Whips Up Culinary Masterpiece",
+  "source": "model:v1"
+}
+```
 
-4- Save and revisit your headlines for a dose of positivity.
-
-# 📂 Project Structure
-
-<details>
-  <summary>Directory structure</summary>
-
+Example curl:
 ```bash
+curl -X POST http://localhost:3000/api/generate \
+  -H "Content-Type: application/json" \
+  -d '{"text":"I ran 5km today","tone":"energetic"}'
+```
+
+---
+
+## Tech Stack
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js, Express
+- AI: Hugging Face
+
+---
+
+## Project Structure
+```
 cheerup/
-├── index.html           # Main entry point (HTML)
-├── style.css            # Global styles (CSS)
-├── app.js               # Frontend logic (JS)
-├── api/                 # Backend folder
-│   ├── server.js        # Express backend entry point
-│   ├── controller/      # Backend controllers
-│   ├── routes/           # Backend routes
-│   └── utils/           # Utility functions
-├── package.json         # Project metadata & dependencies
-
+├── index.html
+├── style.css
+├── app.js
+├── api/
+│   ├── server.js
+│   ├── controller/
+│   ├── routes/
+│   └── utils/
+├── screenshots/
+├── package.json
+└── README.md
 ```
-</details>
 
 ---
 
-# 🤝 Contributing
-### Contributions are welcome!
-# Fork the repo and create a new branch
+## Development Tips
+- Keep prompts concise and include desired style (e.g., "newspaper headline, playful").
+- Cache or rate-limit calls to the AI provider to avoid extra cost.
+- Unit-test controllers that call external APIs by mocking network responses.
+
+---
+
+## Contributing
+Contributions welcome — please open issues or PRs.
+
+Workflow:
 ```bash
-git checkout -b feature/amazing-feature
-
-# Commit changes
-git commit -m "Add amazing feature"
-
-# Push branch
-git push origin feature/amazing-feature
+git checkout -b feature/your-feature
+# make changes
+git commit -m "Add feature"
+git push origin feature/your-feature
 ```
 
----
-
-## 📸 Screenshots
-
-###  🗣 Headlines 
-![Headline UI](./screenshots/headlines.jpg)
-
-### 🎉 Front Page
-![Generate Headline](./screenshots/generate-headline.jpg)
-
+Please follow standard GitHub PR norms and include tests for new features.
 
 ---
 
 
-## 📬 Contact
-
-Got feedback, ideas, or questions? Let’s connect!  
-
-📧 [Email Me](https://mail.google.com/mail/?view=cm&fs=1&to=saeedrhalabi@gmail.com)  
-💼 [LinkedIn](https://www.linkedin.com/in/saeed-halabi)  
-🌐 [Portfolio](https://saeedhalabi.com)  
-
----
+## Contact
+Email: saeedrhalabi@gmail.com  
+LinkedIn: https://www.linkedin.com/in/saeed-halabi  
+Portfolio: https://saeedhalabi.com
