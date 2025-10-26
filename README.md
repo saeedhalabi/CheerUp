@@ -88,10 +88,10 @@ git push origin feature/amazing-feature
 
 ## 📸 Screenshots
 
-###  🎉 Front Page
+###  🗣 Headlines 
 ![Headline UI](./screenshots/headlines.jpg)
 
-### 🗣 Headlines
+### 🎉 Front Page
 ![Generate Headline](./screenshots/generate-headline.jpg)
 
 
