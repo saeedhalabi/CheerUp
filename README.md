@@ -86,12 +86,14 @@ git push origin feature/amazing-feature
 
 ---
 
-📌 **Roadmap**
+## 📸 Screenshots
 
-- Add persistent storage for headlines
-- Enable social media sharing
-- Add user accounts for personalized journals
-- Explore AI-powered headline suggestions
+###  🎉 Front Page
+![Headline UI](./screenshots/headlines.jpg)
+
+### 🗣 Headlines
+![Generate Headline](./screenshots/generate-headline.jpg)
+
 
 ---
 
