@@ -25,7 +25,8 @@ Enter a small win like:
 Result:
 "Local Organizer Restores Order, Desk Productivity Soars"
 
-(Screenshots: ./screenshots/headlines.jpg, ./screenshots/generate-headline.jpg)
+**Screenshots:** ![Headlines](./screenshots/headlines.jpg) ![Generate Headline](./screenshots/generate-headline.jpg)
+
 
 ---
 
